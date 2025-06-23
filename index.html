@@ -176,12 +176,12 @@
 
   <section class="contact">
     <h2 data-fr="Contactez-nous" data-en="Contact us">Contactez-nous</h2>
-    <form>
-      <input type="text" placeholder="Nom / Name">
-      <input type="text" placeholder="Prénom / First name">
-      <input type="text" placeholder="Commune de résidence / Place of residence">
-      <input type="email" placeholder="Email">
-      <textarea placeholder="Votre message / Your message"></textarea>
+    <form action="mailto:minalinkcontact@gmail.com" method="POST" enctype="text/plain">
+      <input type="text" name="Nom" placeholder="Nom / Name" required>
+      <input type="text" name="Prénom" placeholder="Prénom / First name" required>
+      <input type="text" name="Commune" placeholder="Commune de résidence / Place of residence">
+      <input type="email" name="Email" placeholder="Email" required>
+      <textarea name="Message" placeholder="Votre message / Your message" required></textarea>
       <button type="submit">Envoyer / Send</button>
     </form>
   </section>
