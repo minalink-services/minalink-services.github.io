@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minalink - Services Administratifs</title>
+  <meta name="description" content="Minalink propose des services administratifs pour particuliers et professionnels : aide à la rédaction de courriers, gestion de dossiers, archivage, facturation, et plus.">
+  <meta name="keywords" content="services administratifs, Minalink, aide administrative, particuliers, professionnels, gestion dossiers, facturation, archivage, rédaction courriers">
+  <meta name="author" content="Minalink">
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1f3a5f;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+    }
+    header img {
+      max-width: 150px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .lang-toggle button {
+      background-color: white;
+      color: #1f3a5f;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+    section {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #1f3a5f;
+    }
+    ul {
+      list-style-type: square;
+      margin-left: 20px;
+    }
+    .contact {
+      background-color: #eee;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    input, textarea, button {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #1f3a5f;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #163052;
+    }
+    footer {
+      background-color: #1f3a5f;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 40px;
+    }
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .card {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      width: 45%;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .card:nth-child(1) { border-top: 5px solid #800020; }
+    .card:nth-child(2) { border-top: 5px solid #50c878; }
+    .service-list {
+      display: none;
+      margin-top: 10px;
+    }
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="lang-toggle">
+      <button onclick="setLanguage('fr')">Français</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
+    <img src="/mnt/data/ChatGPT Image 19 juin 2025 à 21_37_56.png" alt="Logo de Minalink">
+    <h1>Minalink</h1>
+    <p data-fr="Votre partenaire de confiance pour la gestion administrative" data-en="Your trusted partner for administrative support">Votre partenaire de confiance pour la gestion administrative</p>
+  </header>
+
+  <section class="about">
+    <h2 data-fr="À propos de Minalink" data-en="About Minalink">À propos de Minalink</h2>
+    <p data-fr="Minalink est née de la volonté de proposer un accompagnement administratif personnalisé, fiable et humain, tant pour les particuliers que les professionnels. Avec rigueur, discrétion et efficacité, nous mettons notre expertise au service de votre tranquillité d’esprit. Contactez-nous pour un accompagnement personnalisé."
+       data-en="Minalink was born from the desire to offer personalized, reliable, and human administrative support for both individuals and professionals. With rigor, discretion, and efficiency, we put our expertise at the service of your peace of mind. Contact us for personalized support.">
+       Minalink est née de la volonté de proposer un accompagnement administratif personnalisé, fiable et humain, tant pour les particuliers que les professionnels. Avec rigueur, discrétion et efficacité, nous mettons notre expertise au service de votre tranquillité d’esprit. Contactez-nous pour un accompagnement personnalisé.
+    </p>
+  </section>
+
+  <section class="presentation">
+    <h2 data-fr="Nos services pour :" data-en="Our services for:">Nos services pour :</h2>
+    <div class="cards">
+      <div class="card" onclick="toggleServices('particuliers')">
+        <h3 data-fr="Pour les particuliers" data-en="For Individuals">Pour les particuliers</h3>
+        <div class="service-list" id="services-particuliers">
+          <ul>
+            <li data-fr="Rédaction de courriers" data-en="Letter writing">Rédaction de courriers</li>
+            <li data-fr="Constitution de dossiers" data-en="Filing applications">Constitution de dossiers</li>
+            <li data-fr="Aide à la gestion des démarches administratives" data-en="Help with administrative procedures">Aide à la gestion des démarches administratives</li>
+            <li data-fr="Classement et archivage" data-en="Sorting and archiving">Classement et archivage</li>
+            <li data-fr="Suivi de factures" data-en="Invoice tracking">Suivi de factures</li>
+            <li data-fr="Relances" data-en="Follow-ups">Relances</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" onclick="toggleServices('professionnels')">
+        <h3 data-fr="Pour les professionnels" data-en="For Professionals">Pour les professionnels</h3>
+        <div class="service-list" id="services-professionnels">
+          <ul>
+            <li data-fr="Saisie et mise en page de documents" data-en="Document typing and formatting">Saisie et mise en page de documents</li>
+            <li data-fr="Gestion administrative" data-en="Administrative management">Gestion administrative</li>
+            <li data-fr="Suivi clients et fournisseurs" data-en="Client and supplier follow-up">Suivi clients et fournisseurs</li>
+            <li data-fr="Archivage et classement" data-en="Archiving and filing">Archivage et classement</li>
+            <li data-fr="Élaboration et suivi de factures" data-en="Invoice preparation and tracking">Élaboration et suivi de factures</li>
+            <li data-fr="Courriers et relances" data-en="Letters and follow-ups">Courriers et relances</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2 data-fr="Contactez-nous" data-en="Contact us">Contactez-nous</h2>
+    <form>
+      <input type="text" placeholder="Nom / Name">
+      <input type="text" placeholder="Prénom / First name">
+      <input type="text" placeholder="Commune de résidence / Place of residence">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Votre message / Your message"></textarea>
+      <button type="submit">Envoyer / Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Minalink - Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-fr], [data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+    }
+
+    function toggleServices(type) {
+      const section = document.getElementById(`services-${type}`);
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
