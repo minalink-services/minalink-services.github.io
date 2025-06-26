@@ -9,26 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ============ DESIGN TOKENS ============ */
     :root {
-  --blue: #2a456b;
-  --beige: #f7f3ec;
-  --white: #ffffff;
-  --bordeaux: #a63a3a;
-  --text: #2e2e2e;
-  --radius: 14px;
-  --shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
-}
-    /* Dark theme overrides */
+      --blue: #2a456b;
+      --beige: #f7f3ec;
+      --white: #ffffff;
+      --bordeaux: #a63a3a;
+      --text: #2e2e2e;
+      --radius: 14px;
+      --shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+    }
     .dark-theme {
-  --blue: #3f5b84;
-  --beige: #1e1e1e;
-  --white: #2e2e2e;
-  --bordeaux: #df7c7c;
-  --text: #ffffff;
-}
-
-    /* ============ GLOBAL ============ */
+      --blue: #3f5b84;
+      --beige: #1e1e1e;
+      --white: #2e2e2e;
+      --bordeaux: #df7c7c;
+      --text: #ffffff;
+    }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family:'Inter',sans-serif;
@@ -42,24 +38,21 @@
     h2{font-size:2rem;margin-bottom:.5em}
     h3{font-size:1.4rem;margin-bottom:.4em}
     section{padding:64px 24px;max-width:1100px;margin:auto}
-
-    /* ============ HEADER ============ */
     header{
-  background:var(--blue);
-  color:var(--white);
-  text-align:center;
-  padding:100px 24px 60px;
-  position:relative;
-  overflow:hidden;
-  transition:background .4s,color .4s;
-}
+      background:var(--blue);
+      color:var(--white);
+      text-align:center;
+      padding:100px 24px 60px;
+      position:relative;
+      overflow:hidden;
+      transition:background .4s,color .4s;
+    }
     header::after{
       content:"";position:absolute;inset:0;
       background:radial-gradient(circle at 50% 20%,rgba(255,255,255,.12),transparent 65%);
       pointer-events:none;
     }
     header img{width:140px;border-radius:var(--radius);margin-bottom:20px}
-
     .top-controls{position:absolute;top:24px;right:24px;display:flex;gap:10px}
     .control-btn{
       background:var(--white);
@@ -72,19 +65,15 @@
       transition:background .3s,color .3s,opacity .3s;
     }
     .control-btn:hover{opacity:.85}
-
-    /* ============ ABOUT ============ */
     .about{
-  background:var(--white);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:56px 48px;
-  margin-top:40px;
-  transition:background .4s;$1
-}
+      background:var(--white);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:56px 48px;
+      margin-top:40px;
+      transition:background .4s;
+    }
     .about p{max-width:800px;margin:auto;font-size:1.1rem;text-align:center}
-
-    /* ============ SERVICES ============ */
     .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:40px}
     .card{
       background:var(--white);
@@ -97,43 +86,54 @@
     }
     .card:hover{transform:translateY(-8px)}
     .card::before{
-      content:"";position:absolute;top:0;left:0;width:6px;height:100%;background:var(--blue);
-      border-top-left-radius:var(--radius);border-bottom-left-radius:var(--radius);
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:6px;
+      height:100%;
+      background:var(--bordeaux); /* accent bordeaux pour toutes les vignettes */
+      border-top-left-radius:var(--radius);
+      border-bottom-left-radius:var(--radius);
       transition:background .4s;
     }
-    .card.particulier::before{background:var(--bordeaux)}
-
+    
     ul{list-style:none;padding-left:0;margin-top:12px}
     li{margin:10px 0 10px 30px;position:relative;font-size:.95rem}
-    li::before{content:"•";position:absolute;left:-24px;color:var(--blue);font-size:1.2rem;transition:color .4s}
+    li::before{content:"•";position:absolute;left:-24px;color:var(--bordeaux);font-size:1.2rem;transition:color .4s}
     .particulier li::before{content:"📄"}
     .professional li::before{content:"🗂️"}
-
-    .service-list{max-height:0;overflow:hidden;transition:max-height .5s ease,padding-top .5s ease;padding-top:0}
-    .service-list.open{max-height:500px;padding-top:12px}
-
-    /* ============ CONTACT ============ */
+    .service-list {
+  max-height: 0;
+  overflow: hidden;
+  padding-top: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: max-height 0.4s ease, padding-top 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+    .service-list.open {
+      max-height: 1000px;
+      padding-top: 12px;
+      opacity: 1;
+      transform: scaleY(1);
+    }
     .contact{display:grid;gap:32px}
     .contact form{display:grid;gap:18px;grid-template-columns:1fr 1fr}
     .contact form textarea{grid-column:span 2}
     .contact input,.contact textarea{
-      padding:14px 16px;font-size:1rem;border:1px solid #ccc;border-radius:var(--radius);background:var(--white);color:var(--text);transition:background .4s,color .4s
+      padding:14px 16px;font-size:1rem;border:1px solid #ccc;border-radius:var(--radius);background:var(--white);color:var(--text);transition:background .4s,color .4s;
     }
     .contact button{
       grid-column:span 2;background:var(--blue);color:var(--white);
-      border:none;border-radius:var(--radius);padding:16px;font-size:1.05rem;font-weight:600;cursor:pointer;transition:background .3s
+      border:none;border-radius:var(--radius);padding:16px;font-size:1.05rem;font-weight:600;cursor:pointer;transition:background .3s;
     }
     .contact button:hover{background:#163052}
-
-    /* ============ FOOTER ============ */
     footer{background:var(--blue);color:var(--white);text-align:center;padding:28px;margin-top:64px;font-size:.9rem;transition:background .4s}
-
-    /* ============ RESPONSIVE ============ */
     @media(max-width:640px){h1{font-size:2.2rem}h2{font-size:1.6rem}.contact form{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <!-- ========== HERO ========== -->
   <header>
     <div class="top-controls">
       <button class="control-btn" onclick="setLanguage('fr')">FR</button>
@@ -147,21 +147,17 @@
     </p>
   </header>
 
-  <!-- ========== ABOUT ========== -->
   <section class="about">
     <h2 data-fr="À propos de Minalink" data-en="About Minalink">À propos de Minalink</h2>
     <p data-fr="Minalink est née de la volonté de proposer un accompagnement administratif personnalisé, fiable et humain, tant pour les particuliers que les professionnels. Avec rigueur, discrétion et efficacité, nous mettons notre expertise au service de votre tranquillité d’esprit. Contactez-nous pour un accompagnement personnalisé."
        data-en="Minalink was born from the desire to offer personalized, reliable, and human administrative support for both individuals and professionals. With rigor, discretion, and efficiency, we put our expertise at the service of your peace of mind. Contact us for personalized support.">
-       <!-- Texte FR par défaut -->
        Minalink est née de la volonté de proposer un accompagnement administratif personnalisé, fiable et humain, tant pour les particuliers que les professionnels. Avec rigueur, discrétion et efficacité, nous mettons notre expertise au service de votre tranquillité d’esprit. Contactez-nous pour un accompagnement personnalisé.
     </p>
   </section>
 
-  <!-- ========== SERVICES ========== -->
   <section>
     <h2 data-fr="Nos services pour :" data-en="Our services for:">Nos services pour :</h2>
     <div class="cards">
-      <!-- Particuliers -->
       <div class="card particulier" onclick="toggleServices('particuliers')">
         <h3 data-fr="Particuliers" data-en="Individuals">Particuliers</h3>
         <div class="service-list" id="services-particuliers">
@@ -176,7 +172,6 @@
         </div>
       </div>
 
-      <!-- Professionnels -->
       <div class="card professional" onclick="toggleServices('professionnels')">
         <h3 data-fr="Professionnels" data-en="Professionals">Professionnels</h3>
         <div class="service-list" id="services-professionnels">
@@ -193,7 +188,6 @@
     </div>
   </section>
 
-  <!-- ========== CONTACT ========== -->
   <section class="contact" id="contact">
     <h2 data-fr="Contactez‑nous" data-en="Get in touch">Contactez‑nous</h2>
     <form action="mailto:minalinkcontact@gmail.com" method="POST" enctype="text/plain">
@@ -206,26 +200,26 @@
     </form>
   </section>
 
-  <!-- ========== FOOTER ========== -->
   <footer>
     <p>&copy; 2025 Minalink · Tous droits réservés.</p>
   </footer>
 
   <script>
-    /* ----- Lang switch ----- */
     function setLanguage(lang){
       document.querySelectorAll('[data-fr],[data-en]').forEach(el=>{
         el.textContent = el.getAttribute(`data-${lang}`);
       });
     }
 
-    /* ----- Toggle service lists ----- */
-    function toggleServices(type){
-      const list = document.getElementById(`services-${type}`);
-      list.classList.toggle('open');
+    function toggleServices(type) {
+      const allLists = document.querySelectorAll('.service-list');
+      const current = document.getElementById(`services-${type}`);
+      allLists.forEach(list => {
+        if (list !== current) list.classList.remove('open');
+      });
+      current.classList.toggle('open');
     }
 
-    /* ----- Theme switch & persistence ----- */
     function toggleTheme(){
       const body = document.body;
       const isDark = body.classList.toggle('dark-theme');
@@ -233,7 +227,6 @@
       document.getElementById('themeToggle').textContent = isDark ? '☀️' : '🌙';
     }
 
-    // init theme on load
     document.addEventListener('DOMContentLoaded', () => {
       const saved = localStorage.getItem('minalink-theme');
       if(saved === 'dark'){
