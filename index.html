@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minalink — Secrétariat & Services</title>
-  <!-- Google Fonts pour un rendu élégant -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #002147;
-      --accent:  #d9c9b0;
-      --light:   #f5f5f5;
+      --primary: #12122b;     /* Fond bleu nuit */
+      --accent:  #d4af65;     /* Doré élégant */
+      --light:   #f0e8d9;     /* Texte clair */
       --header-height: 64px;
     }
     * {
@@ -23,14 +22,13 @@
       color: var(--light);
       background: var(--primary);
     }
-
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: var(--header-height);
-      background: rgba(0, 33, 71, 0.85);
+      background: rgba(18, 18, 43, 0.9);
       backdrop-filter: blur(4px);
       display: flex;
       align-items: center;
@@ -59,7 +57,6 @@
     nav a:hover {
       color: var(--accent);
     }
-
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -78,7 +75,7 @@
         position: fixed;
         right: -100%;
         top: var(--header-height);
-        background: rgba(0, 33, 71, 0.95);
+        background: rgba(18, 18, 43, 0.95);
         flex-direction: column;
         width: 200px;
         height: calc(100% - var(--header-height));
@@ -93,7 +90,6 @@
         display: flex;
       }
     }
-
     section {
       padding: 120px 3rem;
     }
@@ -111,7 +107,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 33, 71, 0.35);
+      background: rgba(18, 18, 43, 0.6);
     }
     #hero .content {
       position: relative;
@@ -131,7 +127,6 @@
       margin-bottom: 2rem;
       text-shadow: 0 1px 4px rgba(0,0,0,.4);
     }
-
     .btn {
       display: inline-block;
       padding: .75rem 2rem;
@@ -145,7 +140,6 @@
       background: var(--accent);
       color: var(--primary);
     }
-
     .section-title {
       font-family: 'Merriweather', serif;
       font-size: 2.2rem;
@@ -153,7 +147,6 @@
       margin-bottom: 1.5rem;
       text-align: center;
     }
-
     .cards {
       display: grid;
       gap: 2rem;
@@ -176,11 +169,11 @@
       font-family: 'Merriweather', serif;
     }
     .card p { line-height: 1.6; }
-
-    footer {
-      background: #00142a;
+    footer, #mentions {
+      background: var(--primary);
       text-align: center;
       padding: 2rem;
+      color: var(--light);
     }
     footer p {
       font-size: .9rem;
@@ -190,7 +183,7 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Logo Minalink" class="logo">
+    <img src="logo-minalink.png" alt="Logo Minalink" class="logo">
     <nav>
       <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">
         <span></span>
@@ -198,17 +191,17 @@
         <span></span>
       </div>
       <ul>
-        <li><a href="#hero" onclick="document.querySelector('nav ul').classList.remove('open')">Accueil</a></li>
-        <li><a href="#services" onclick="document.querySelector('nav ul').classList.remove('open')">Services</a></li>
-        <li><a href="#about" onclick="document.querySelector('nav ul').classList.remove('open')">À propos</a></li>
-        <li><a href="#contact" onclick="document.querySelector('nav ul').classList.remove('open')">Contact</a></li>
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <section id="hero">
     <div class="content">
-      <img src="logo.png" alt="Logo Minalink" style="height: 100px; margin-bottom: 1.5rem;">
+      <img src="logo-minalink.png" alt="Logo Minalink" style="height: 100px; margin-bottom: 1.5rem;">
       <h1>Secrétariat &amp; Services administratifs</h1>
       <p>Libérez‑vous des contraintes administratives. Je prends en charge vos tâches de secrétariat avec rigueur, discrétion et efficacité.</p>
       <a href="#contact" class="btn">Demander un devis</a>
@@ -237,7 +230,7 @@
     <h2 class="section-title">À propos de Minalink</h2>
     <p style="max-width: 800px; margin: 0 auto 2rem; text-align: center; line-height: 1.8;">
       Minalink est un secrétariat externalisé fondé sur des valeurs d’excellence, de confidentialité et de précision.
-      Avec une expérience confirmée dans l’accompagnement des professionnels et particulièr, je vous apporte des solutions sur‑mesure pour optimiser votre quotidien administratif.
+      Avec une expérience confirmée dans l’accompagnement des professionnels et particuliers, je vous apporte des solutions sur‑mesure pour optimiser votre quotidien administratif.
     </p>
   </section>
 
@@ -255,8 +248,8 @@
     <p style="font-size: .8rem; text-align: center; opacity: .7; margin-top: 1rem;">En cliquant sur "Envoyer", vous acceptez que vos données soient utilisées pour répondre à votre demande.</p>
   </section>
 
-  <section id="mentions" style="background: #00142a; color: #aaa; padding: 2rem 3rem; font-size: .9rem;">
-    <h2 style="color: var(--accent); text-align: center; margin-bottom: 1rem;">Mentions légales</h2>
+  <section id="mentions">
+    <h2 class="section-title">Mentions légales</h2>
     <p style="max-width: 800px; margin: 0 auto; text-align: center;">
       Ce site est édité par Mina. Tous les contenus sont protégés. L'hébergement est assuré par un prestataire européen conforme RGPD.
     </p>
@@ -267,4 +260,3 @@
   </footer>
 </body>
 </html>
-
